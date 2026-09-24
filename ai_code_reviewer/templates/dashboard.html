@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - AI Code Reviewer</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<header class="navbar">
+
+    <h1>AI Code Reviewer</h1>
+
+
+    <div class="user-area">
+
+        <span>
+            Welcome, {{ name }}
+        </span>
+
+
+        <a href="{{ url_for('logout') }}">
+
+            Logout
+
+        </a>
+
+    </div>
+
+</header>
+
+
+<main class="dashboard">
+
+
+    <section class="editor-section">
+
+        <h2>Code Analysis</h2>
+
+
+        <p>
+
+            Enter your code and analyze it.
+
+        </p>
+
+
+        <div class="top-bar">
+
+            <label for="language">
+
+                Language:
+
+            </label>
+
+
+            <select id="language">
+
+                <option value="python">
+
+                    Python
+
+                </option>
+
+
+                <option value="javascript">
+
+                    JavaScript
+
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <textarea
+            id="code"
+            placeholder="Write or paste your code here..."
+        ></textarea>
+
+
+        <button onclick="reviewCode()">
+
+            🔍 Review Code
+
+        </button>
+
+    </section>
+
+
+    <section class="result-section">
+
+
+        <div class="score-card">
+
+            <h2>Code Quality</h2>
+
+
+            <div id="score">
+
+                --
+
+            </div>
+
+
+            <p id="quality">
+
+                Waiting for review...
+
+            </p>
+
+        </div>
+
+
+        <div class="summary">
+
+            <h2>Summary</h2>
+
+
+            <p id="summary">
+
+                Submit your code to start the review.
+
+            </p>
+
+        </div>
+
+
+        <div class="issues">
+
+            <h2>Detected Issues</h2>
+
+
+            <div id="issues-container">
+
+                <p>
+
+                    No review performed yet.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+<script src="{{ url_for(
+    'static',
+    filename='script.js'
+) }}"></script>
+
+
+</body>
+
+</html>
